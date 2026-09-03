@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search for song lyrics by title and artist.">
+  <title>Lyric Finder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <p class="eyebrow">Open web lyric search</p>
+      <h1>Lyric Finder</h1>
+      <p class="tagline">Find song lyrics quickly, clearly, and accessibly.</p>
+    </div>
+  </header>
+  <main id="main-content" class="container" role="main">
+    <section class="search-panel" aria-labelledby="search-heading">
+      <h2 id="search-heading">Search for a song</h2>
+      <form id="search-form" novalidate>
+        <div class="field-grid">
+          <div class="field">
+            <label for="title">Song title <span aria-hidden="true">*</span></label>
+            <input id="title" name="title" type="text" autocomplete="off" required placeholder="e.g. Imagine">
+          </div>
+          <div class="field">
+            <label for="artist">Artist <span class="optional">(optional)</span></label>
+            <input id="artist" name="artist" type="text" autocomplete="off" placeholder="e.g. John Lennon">
+          </div>
+        </div>
+        <button class="button primary" type="submit" id="search-button">Find lyrics</button>
+      </form>
+      <p id="search-status" class="status" role="status" aria-live="polite"></p>
+      <p id="search-error" class="error" role="alert" aria-live="assertive"></p>
+    </section>
+    <section id="results" class="results" aria-labelledby="results-heading" tabindex="-1" hidden>
+      <div class="result-heading">
+        <div>
+          <p class="eyebrow">Lyrics found</p>
+          <h2 id="results-heading"><span id="song-name"></span></h2>
+          <p id="source-label" class="source"></p>
+        </div>
+        <button class="button secondary" type="button" id="copy-button">Copy lyrics</button>
+      </div>
+      <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+      <pre id="lyrics" class="lyrics" tabindex="0"></pre>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container"><p>Lyric Finder uses free public lyric services. Availability and licensing may vary by provider.</p></div>
+  </footer>
+</body>
+</html>
